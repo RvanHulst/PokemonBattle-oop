@@ -6,3 +6,5 @@ class Pokemon {
     public $attacks =[];
     public $weakness = []; 
     public $resistance =[]; 
+    
+    public function __construct($name, $energytype, $hitpoints, $attacks, $weakness, $resistance)
