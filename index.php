@@ -2,30 +2,15 @@
 require 'pokemon.php';
 require 'pikachu.php';
 require 'charmeleon.php';
+require 'energytype.php';
+require 'attack.php';
+require 'resistance.php';
+require 'weakness.php';
 
+$pikachu = new pikachu('john');
+$charmeleon = new charmeleon('dabby');
 
-$charmeleon  =  new Pokemon(
-	'Charmeleon',
-	'Fire', 
-	 60,
-	[['Head Butt',10],['Flare',30]],
-	['Water', 2],
-	['Lightning',10]
-);
+$pikachu->attack($charmeleon, $pikachu->attacks['electric ring'] );
 
-$pikachu =  new Pokemon(
-	'Pikachu',
-	'Lightning', 
-	 60,
-	[['Electric Ring',50 ],['Pika Punch',20]],
-	['Fire', 1.5],
-	['Fighting',20]
-);
+$charmeleon->attack($pikachu, $charmeleon->attacks['head butt'] );
 
-
-print_r("<pre>Charmeleon's health ". $charmeleon->health . "</pre>=Pikachu does a Electric Ring attack on Charmeleon=");
-$pikachu->attack($charmeleon, 0);
-print_r("<pre>Charmeleon's health after attack ". $charmeleon->health . '</pre>==Switching Turns==');
-print_r("<pre>Pikachu's health ". $pikachu->health . "</pre>=Charmeleon does a Flare attack on Pikachu=");
-$charmeleon->attack($pikachu, 1);
-print_r("<pre>Pikachu's health after attack ". $pikachu->health . '</pre>');
